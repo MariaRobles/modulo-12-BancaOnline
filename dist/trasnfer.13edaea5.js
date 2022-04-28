@@ -4208,8 +4208,7 @@ var _axios = _interopRequireDefault(require("axios"));
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var urlCuenta = "".concat("http://localhost:3000/api", "/account-list");
-var urlTransfer = "".concat("http://localhost:3000/api", "/transfer"); //esto está en el .env
-//para coger los datos de cada cuenta para el campo de selección de cuenta
+var urlTransfer = "".concat("http://localhost:3000/api", "/transfer"); //para coger los datos de cada cuenta para el campo de selección de cuenta
 
 var getAccountOptions = function getAccountOptions() {
   return _axios.default.get(urlCuenta).then(function (_ref) {
@@ -7353,12 +7352,9 @@ function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { va
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
-//import {mapTransferFromViewModelToApi} from './transfer.mappers';
-var params = _router.history.getParams(); //para coger el parámetros de la url y el enrutador
+var params = _router.history.getParams();
 
-
-var isEditMode = Boolean(params.id); //para ver si la url tiene un parámetro o no (para ver si le das a agregar cuenta o editar cuenta)
-
+var isEditMode = Boolean(params.id);
 var transfer = {
   sourceAccount: "",
   iban: "",
@@ -7371,10 +7367,9 @@ var transfer = {
   year: "",
   date: "",
   email: ""
-}; //poner las opciones de cuenta
+}; //get account options
 
 if (isEditMode) {
-  //si la url tiene un param.id (sería un update)
   console.log(params.id);
   (0, _trasnfer.getAccountOptions)().then(function (accounts) {
     (0, _transfer.setAccountOptions)(accounts, params.id);
@@ -7389,8 +7384,7 @@ if (isEditMode) {
       sourceAccount: "1"
     });
   });
-} // fin de las opcines de cuenta
-//recoger datos de cada campo
+} // END get account options
 
 
 (0, _helpers.onUpdateField)('iban', function (event) {
@@ -7532,7 +7526,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "51683" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "51112" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
